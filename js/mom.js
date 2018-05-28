@@ -30,7 +30,7 @@ momObj.prototype.draw = function()
 	// delta angle
 	var deltaY = my - this.y;
 	var deltaX = mx - this.x;
-	var beta = Math.atan2(deltaY, deltaX);
+	var beta = Math.atan2(deltaY, deltaX) + Math.PI;
 
 	// lerp angle 
 	this.angle = lerpAngle(beta, this.angle, 0.6);
