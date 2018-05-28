@@ -76,6 +76,11 @@ fruitObj.prototype.born = function(i)
 	}
 }
 
+// 果实被吃掉
+fruitObj.prototype.dead = function(i){
+	this.alive[i] = false;
+}
+
 
 // 监控果实的数量
 function fruitMonitor()
@@ -108,3 +113,5 @@ function sendFruit()
 
 	}
 }
+
+

@@ -66,6 +66,10 @@ function gameloop(){
 	var now = Date.now();
 	deltaTime = now - lastTime;
 	lastTime = now;
+	// 优化，防止果实会变的异常大
+	if(deltaTime > 40){
+		deltaTime = 40;
+	}
 	drawBackground();
 
 	//绘制海葵
@@ -80,6 +84,9 @@ function gameloop(){
 	//绘制鱼妈妈
 	ctx1.clearRect(0, 0, canWidth, canHeight);
 	mom.draw();
+
+	// 碰撞检测
+	momFruitsCollision();
 }
 
 
