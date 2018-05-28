@@ -9,6 +9,10 @@ var deltaTime; // 两帧间隔的时间差
 
 var bgPic = new Image();
 
+var ane;
+var fruit;
+var mom; 
+
 var canWidth;  // 画布宽度
 var canHeight; // 画布高度
 
@@ -40,6 +44,10 @@ function init(){
     fruit = new fruitObj();
     fruit.init();
 
+    // 初始化鱼妈妈
+    mom = new momObj();
+    mom.init();
+
 }
 
 function gameloop(){
@@ -57,6 +65,10 @@ function gameloop(){
 
 	//监控果实的数量
 	fruitMonitor();
+
+	ctx1.clearRect(0, 0, canWidth, canHeight);
+	//绘制鱼妈妈
+	mom.draw();
 
 	//console.log(deltaTime);
 }
