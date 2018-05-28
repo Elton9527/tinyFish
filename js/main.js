@@ -31,6 +31,11 @@ function init(){
 	bgPic.src = "./src/background.jpg";
 	canWidth = can1.width;
     canHeight = can1.height;
+
+    // 初始化海葵
+    ane = new aneObj();
+    ane.init();
+
 }
 
 function gameloop(){
@@ -39,5 +44,8 @@ function gameloop(){
 	deltaTime = now - lastTime;
 	lastTime = now;
 	drawBackground();
+
+	//绘制海葵
+	ane.draw();
 	//console.log(deltaTime);
 }
