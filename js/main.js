@@ -17,7 +17,7 @@ document.body.onload = game;
 function game(){
 	init();
 	lastTime = Date.now();
-	deltaTime = 0;
+	deltaTime = 0;          //距离上次执行时间的间隔时间
 	gameloop();
 }
 
@@ -36,6 +36,10 @@ function init(){
     ane = new aneObj();
     ane.init();
 
+    // 初始化果实
+    fruit = new fruitObj();
+    fruit.init();
+
 }
 
 function gameloop(){
@@ -47,5 +51,9 @@ function gameloop(){
 
 	//绘制海葵
 	ane.draw();
+
+	//绘制果实
+	fruit.draw();
+
 	//console.log(deltaTime);
 }
