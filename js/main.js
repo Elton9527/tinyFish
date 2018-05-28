@@ -55,5 +55,8 @@ function gameloop(){
 	//绘制果实
 	fruit.draw();
 
+	//监控果实的数量
+	fruitMonitor();
+
 	//console.log(deltaTime);
 }
