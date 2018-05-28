@@ -13,6 +13,9 @@ var ane;
 var fruit;
 var mom; 
 
+var mx;  // 鼠标X坐标
+var my;  // 鼠标Y坐标
+
 var canWidth;  // 画布宽度
 var canHeight; // 画布高度
 
@@ -48,10 +51,18 @@ function init(){
     mom = new momObj();
     mom.init();
 
+    mx = canWidth * 0.5;
+    my = canHeight * 0.5;
+
+    //监听鼠标的移动
+    can1.addEventListener('mousemove', onMouseMove, false);
+
+
 }
 
 function gameloop(){
 	requestAnimFrame(gameloop);
+
 	var now = Date.now();
 	deltaTime = now - lastTime;
 	lastTime = now;
@@ -66,9 +77,18 @@ function gameloop(){
 	//监控果实的数量
 	fruitMonitor();
 
-	ctx1.clearRect(0, 0, canWidth, canHeight);
 	//绘制鱼妈妈
+	ctx1.clearRect(0, 0, canWidth, canHeight);
 	mom.draw();
+}
 
-	//console.log(deltaTime);
+
+// 检测鼠标移动
+function onMouseMove(e)
+{
+	if(e.offSetX || e.layerX)
+	{
+		mx = e.offSetX == undefined ? e.layerX : e.offSetX;
+		my = e.offSetY == undefined ? e.layerY : e.offSetY;
+	}
 }
