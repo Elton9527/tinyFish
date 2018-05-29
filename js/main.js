@@ -12,6 +12,7 @@ var bgPic = new Image();
 var ane;
 var fruit;
 var mom; 
+var baby; // 鱼宝宝
 
 var mx;  // 鼠标X坐标
 var my;  // 鼠标Y坐标
@@ -51,11 +52,17 @@ function init(){
     mom = new momObj();
     mom.init();
 
+    
+
     mx = canWidth * 0.5;
     my = canHeight * 0.5;
 
     //监听鼠标的移动
     can1.addEventListener('mousemove', onMouseMove, false);
+
+    // 初始化鱼宝宝
+    baby = new babyObj();
+    baby.init();
 
 
 }
@@ -87,6 +94,9 @@ function gameloop(){
 
 	// 碰撞检测
 	momFruitsCollision();
+
+	// 
+	baby.draw();
 }
 
 
