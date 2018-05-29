@@ -20,6 +20,8 @@ var my;  // 鼠标Y坐标
 var canWidth;  // 画布宽度
 var canHeight; // 画布高度
 
+var babyTail = []; // 鱼宝宝的尾巴数组
+
 // 页面加载完后，执行game
 document.body.onload = game;
 function game(){
@@ -52,8 +54,6 @@ function init(){
     mom = new momObj();
     mom.init();
 
-    
-
     mx = canWidth * 0.5;
     my = canHeight * 0.5;
 
@@ -64,6 +64,11 @@ function init(){
     baby = new babyObj();
     baby.init();
 
+    // 初始化鱼宝宝的尾巴
+    for(var i = 0; i< 8; i++){
+    	babyTail[i] = new Image();
+    	babyTail[i].src = "./src/babyTail1" + i + ".png";
+    }
 
 }
 
