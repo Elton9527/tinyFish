@@ -25,6 +25,7 @@ var babyEye = [];   // 鱼宝宝的眼睛
 var babyBody = [];  // 鱼宝宝的身体逐渐变白
 
 var momTail= [];
+var momEye = [];
 
 // 页面加载完后，执行game
 document.body.onload = game;
@@ -92,6 +93,13 @@ function init(){
     	momTail[i] = new Image();
     	momTail[i].src = "./src/bigTail" + i + ".png";
     }
+
+    //鱼妈妈 的眼睛
+    for(var i = 0; i< 2; i++){
+    	momEye[i] = new Image();
+    	momEye[i].src = "./src/bigEye" + i + ".png";
+    }
+
 }
 
 function gameloop(){
@@ -119,7 +127,6 @@ function gameloop(){
 	ctx1.clearRect(0, 0, canWidth, canHeight);
 	mom.draw();
 
-	
 
 	// 绘制鱼宝宝
 	baby.draw();
