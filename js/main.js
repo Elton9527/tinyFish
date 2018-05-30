@@ -21,6 +21,7 @@ var canWidth;  // 画布宽度
 var canHeight; // 画布高度
 
 var babyTail = []; // 鱼宝宝的尾巴数组
+var babyEye = [];  // 鱼宝宝的眼睛
 
 // 页面加载完后，执行game
 document.body.onload = game;
@@ -70,6 +71,12 @@ function init(){
     	babyTail[i].src = "./src/babyTail" + i + ".png";
     }
 
+    // 初始化鱼宝宝的眼睛
+    for(var i = 0; i < 2; i++)
+    {
+    	babyEye[i] = new Image();
+    	babyEye[i].src = "./src/babyEye" + i + ".png";
+    }
 }
 
 function gameloop(){
