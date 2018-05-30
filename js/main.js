@@ -20,8 +20,9 @@ var my;  // 鼠标Y坐标
 var canWidth;  // 画布宽度
 var canHeight; // 画布高度
 
-var babyTail = []; // 鱼宝宝的尾巴数组
-var babyEye = [];  // 鱼宝宝的眼睛
+var babyTail = [];  // 鱼宝宝的尾巴数组
+var babyEye = [];   // 鱼宝宝的眼睛
+var babyBody = [];  // 鱼宝宝的身体逐渐变白
 
 // 页面加载完后，执行game
 document.body.onload = game;
@@ -76,6 +77,12 @@ function init(){
     {
     	babyEye[i] = new Image();
     	babyEye[i].src = "./src/babyEye" + i + ".png";
+    }
+
+    for(var i = 0; i < 20; i++)
+    {
+    	babyBody[i] = new Image();
+    	babyBody[i].src = "./src/babyFade" + i + ".png";
     }
 }
 

@@ -14,6 +14,10 @@ var babyObj = function()
 	this.babyEyeTimer = 0;        // 计时器
 	this.babyEyeCount = 0;        // 当前执行到哪一帧了
 	this.babyEyeInterval = 1000;  //  时间间隔图片，该图片持续多久
+
+	this.babyBodyTimer = 0;        // 计时器
+	this.babyBodyCount = 0;        // 当前执行到哪一帧了
+	this.babyBodyInterval = 1000;  //  时间间隔图片，该图片持续多久
 }
 
 babyObj.prototype.init = function()
@@ -60,6 +64,19 @@ babyObj.prototype.draw = function()
 			this.babyEyeInterval = 200;
 		}
 	}
+
+	// baby Body 
+	this.babyBodyTimer += deltaTime;
+	if(this.babyBodyTimer > 3000)
+	{
+		this.babyBodyCount = this.babyBodyCount +1;
+		this.babyBodyTimer %= 300;
+		if(this.babyBodyCount > 19)
+		{
+			this.babyBodyCount = 19;
+			// game over;
+		}
+	}
 	
 
 	// lerp angle 
@@ -71,7 +88,9 @@ babyObj.prototype.draw = function()
 	ctx1.rotate(this.angle);
 	var babyTailCount = this.babyTailCount;
 	ctx1.drawImage(babyTail[babyTailCount], -babyTail[babyTailCount].width * 0.5 +23 , -babyTail[babyTailCount].height * 0.5);
-	ctx1.drawImage(this.babyBody, -this.babyBody.width * 0.5, -this.babyBody.height * 0.5);
+
+	var babyBodyCount = this.babyBodyCount ;
+	ctx1.drawImage(babyBody[babyBodyCount], -babyBody[babyBodyCount].width * 0.5, -babyBody[babyBodyCount].height * 0.5);
 
 	var babyEyeCount = this.babyEyeCount;
 	ctx1.drawImage(babyEye[babyEyeCount], -babyEye[babyEyeCount].width * 0.5, -babyEye[babyEyeCount].height * 0.5);
