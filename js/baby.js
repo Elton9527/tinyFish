@@ -36,14 +36,11 @@ babyObj.prototype.draw = function()
 
 	// baby tail count
 	this.babyTailTimer += deltaTime;
-	
-	console.log('babyTailTimer'+this.babyTailTimer);
-	if(this.babayTailTimer > 50)
+	if(this.babyTailTimer > 50)
 	{
-		this.babyTailCount = (this.babyTailCount + 1) % 8;
+		this.babyTailCount = (this.babyTailTimer + 1) % 8;
 		this.babyTailTime %= 50;
 	}
-	console.log(this.babyTailCount);
 
 	// lerp angle 
 	this.angle = lerpAngle(beta, this.angle, 0.6);

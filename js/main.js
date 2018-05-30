@@ -67,7 +67,7 @@ function init(){
     // 初始化鱼宝宝的尾巴
     for(var i = 0; i< 8; i++){
     	babyTail[i] = new Image();
-    	babyTail[i].src = "./src/babyTail1" + i + ".png";
+    	babyTail[i].src = "./src/babyTail" + i + ".png";
     }
 
 }
@@ -100,7 +100,7 @@ function gameloop(){
 	// 碰撞检测
 	momFruitsCollision();
 
-	// 
+	// 绘制鱼宝宝
 	baby.draw();
 }
 
