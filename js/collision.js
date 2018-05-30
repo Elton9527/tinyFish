@@ -11,3 +11,17 @@ function momFruitsCollision(){
 		}
 	}
 }
+
+
+// 鱼妈妈 和 鱼宝宝 碰撞检测
+
+function momBabyCollision()
+{
+	var len = calLength2(mom.x , mom.y, baby.x , baby.y);
+
+	if(len < 900)
+	{
+		// 鱼宝宝 满血复活
+		baby.babyBodyCount = 0;
+	}
+}
