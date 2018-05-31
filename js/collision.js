@@ -36,7 +36,8 @@ function momBabyCollision()
 	{
 		// 鱼宝宝 满血复活
 		baby.babyBodyCount = 0;
-		// data 归零
-		data.reset();
+		mom.momBodyCount = 0;
+		//score update
+		data.addScore();
 	}
 }
