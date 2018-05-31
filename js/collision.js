@@ -7,6 +7,19 @@ function momFruitsCollision(){
 			if ( len < 900){
 				// 果实被吃掉
 				fruit.dead(i);
+				// 果实数增加
+				data.fruitNum++;
+
+				mom.momBodyCount++;
+				if(mom.momBodyCount > 7)
+				{
+					mom.momBodyCount =7;
+				}
+
+				if(fruit.fruitType[i] == "blue")
+				{
+					data.double = 2;
+				}
 			}
 		}
 	}
@@ -23,5 +36,7 @@ function momBabyCollision()
 	{
 		// 鱼宝宝 满血复活
 		baby.babyBodyCount = 0;
+		// data 归零
+		data.reset();
 	}
 }

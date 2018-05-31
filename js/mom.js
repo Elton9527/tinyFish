@@ -14,6 +14,8 @@ var momObj = function()
 	this.momEyeTimer = 0;
 	this.momEyeCount = 0;
 	this.momEyeInterval = 1000;  //  时间间隔图片，该图片持续多久
+
+	this.momBodyCount = 0;  //鱼妈妈身体颜色当前所处帧（计数器）
 }
 
 momObj.prototype.init = function()
@@ -69,13 +71,25 @@ momObj.prototype.draw = function()
 	ctx1.save();
 	ctx1.translate(this.x, this.y);
 	ctx1.rotate(this.angle);
+
 	var momTailCount = this.momTailCount;
 	ctx1.drawImage(momTail[momTailCount], -momTail[momTailCount].width * 0.5 +30 , -momTail[momTailCount].height * 0.5);
 
+
+	var momBodyCount = this.momBodyCount;
+	if(data.double == 1)
+	{
+		ctx1.drawImage(momBodyOra[momBodyCount], -momBodyOra[momBodyCount].width * 0.5, -momBodyOra[momBodyCount].height * 0.5);
+	}else
+	{
+		ctx1.drawImage(momBodyBlue[momBodyCount], -momBodyBlue[momBodyCount].width * 0.5, -momBodyBlue[momBodyCount].height * 0.5);
+	}
+	
+
+
 	var momEyeCount = this.momEyeCount;
-	console.log('momEyeCount:' + momEyeCount);
 	ctx1.drawImage(momEye[momEyeCount], -momEye[momEyeCount].width * 0.5, -momEye[momEyeCount].height * 0.5);
-	ctx1.drawImage(this.bigBody, -this.bigBody.width * 0.5, -this.bigBody.height * 0.5);
+	
 	
 	ctx1.restore();
 }

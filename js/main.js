@@ -27,6 +27,9 @@ var babyBody = [];  // 鱼宝宝的身体逐渐变白
 var momTail= [];
 var momEye = [];
 
+var momBodyOra = [];  // 鱼妈妈身体颜色 Orage
+var momBodyBlue = []; // 鱼妈妈身体颜色 Blue
+
 // 页面加载完后，执行game
 document.body.onload = game;
 function game(){
@@ -37,6 +40,7 @@ function game(){
 }
 
 function init(){
+
 	// 获得canvas context
 	can1 = document.getElementById("canvas1");
 	ctx1 = can1.getContext("2d");
@@ -46,6 +50,8 @@ function init(){
 	bgPic.src = "./src/background.jpg";
 	canWidth = can1.width;
     canHeight = can1.height;
+    
+    data = new dataObj();
 
     // 初始化海葵
     ane = new aneObj();
@@ -100,6 +106,15 @@ function init(){
     	momEye[i].src = "./src/bigEye" + i + ".png";
     }
 
+    for(var i = 0; i< 8; i++){
+    	momBodyOra[i] = new Image();
+    	momBodyBlue[i] = new Image();
+    	momBodyOra[i].src = "./src/bigSwim" + i + ".png";
+    	momBodyBlue[i].src = "./src/bigSwimBlue" + i + ".png";
+    }
+
+    
+
 }
 
 function gameloop(){
@@ -134,6 +149,9 @@ function gameloop(){
 	momFruitsCollision();
 	// 鱼妈妈 鱼宝宝 碰撞检测
 	momBabyCollision();
+
+	// 
+	data.draw();
 }
 
 
