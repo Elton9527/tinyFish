@@ -20,7 +20,7 @@ dataObj.prototype.draw = function()
 
 dataObj.prototype.addScore = function()
 {
-	this.score += this.fruitNum * 100 + this.double;
+	this.score += this.fruitNum * 100 * this.double;
 	this.fruitNum = 0;
 	this.double = 1;
 }
