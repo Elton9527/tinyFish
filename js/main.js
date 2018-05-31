@@ -142,7 +142,6 @@ function gameloop(){
 	ctx1.clearRect(0, 0, canWidth, canHeight);
 	mom.draw();
 
-
 	// 绘制鱼宝宝
 	baby.draw();
 	// 碰撞检测
@@ -158,9 +157,13 @@ function gameloop(){
 // 检测鼠标移动
 function onMouseMove(e)
 {
-	if(e.offSetX || e.layerX)
-	{
-		mx = e.offSetX == undefined ? e.layerX : e.offSetX;
-		my = e.offSetY == undefined ? e.layerY : e.offSetY;
-	}
+    if(!data.gameOver)
+    {
+        if(e.offSetX || e.layerX)
+        {
+            mx = e.offSetX == undefined ? e.layerX : e.offSetX;
+            my = e.offSetY == undefined ? e.layerY : e.offSetY;
+        }
+    }
+	
 }
