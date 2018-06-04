@@ -32,6 +32,9 @@ var momBodyBlue = []; // 鱼妈妈身体颜色 Blue
 
 var wave = [];
 
+var dust; //漂浮物
+var dustPic = [];
+
 // 页面加载完后，执行game
 document.body.onload = game;
 function game(){
@@ -122,6 +125,18 @@ function init(){
     halo = new haloObj();
     halo.init();
 
+
+    for(var i=0; i < 7; i++)
+    {
+        dustPic[i] = new Image();
+        dustPic[i].src = "./src/dust" + i + ".png";
+    }
+
+    dust = new dustObj();
+    dust.init();
+
+    
+
 }
 
 function gameloop(){
@@ -164,6 +179,8 @@ function gameloop(){
     
     // 大鱼 喂 小鱼的特效
     halo.draw();
+    // 绘制漂浮物
+    dust.draw();
 }
 
 

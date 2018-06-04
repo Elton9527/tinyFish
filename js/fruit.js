@@ -3,6 +3,7 @@ var fruitObj = function()
 	this.alive = [];
 	this.x = [];
 	this.y = [];
+	this.aneNO= []; //
 	this.l = [];   // 图片长度
 	this.spd = []; // 果实上浮的速度
 	this.fruitType = []; //果实类型
@@ -20,6 +21,7 @@ fruitObj.prototype.init = function()
 		this.x[i] = 0;
 		this.y[i] = 0;
 		this.l[i] = 0;
+		this.aneNO[i] = 0;
 		this.spd[i] = Math.random() * 0.017 + 0.003;  //[0.003, 0.02)
 		this.born(i);
 		this.fruitType[i] ='';
@@ -43,12 +45,19 @@ fruitObj.prototype.draw = function()
 				var pic = this.orange;
 			}
 
-			if(this.l[i] <= 15){
+			if(this.l[i] <= 14){
+				var NO = this.aneNO[i];
+				this.x[i] = ane.headx[NO];
+				this.y[i] = ane.heady[NO];
 				this.l[i] += this.spd[i] * deltaTime; // 随时间变化，长度变长
+
 			} else{
+
 				this.y[i] -= this.spd[i] * 7 * deltaTime; // 果实长大到一定程度，慢慢上浮;
 			}
+
 			ctx2.drawImage(pic, this.x[i] - this.l[i] * 0.5, this.y[i] -  this.l[i] * 0.5, this.l[i], this.l[i]);
+			
 
 			if(this.y[i] < 10)
 			{
@@ -63,9 +72,7 @@ fruitObj.prototype.draw = function()
 fruitObj.prototype.born = function(i)
 {
 	// 随机找到一个海葵的位置，生成一个果实
-	var aneId = Math.floor(Math.random() * ane.num);
-	this.x[i] = ane.headx[aneId];
-	this.y[i] = ane.heady[aneId];
+	this.aneNO[i] = Math.floor(Math.random() * ane.num);
 	this.l[i] = 0;
 	this.alive[i] = true;
 	var ran = Math.random();
