@@ -64,8 +64,8 @@ fruitObj.prototype.born = function(i)
 {
 	// 随机找到一个海葵的位置，生成一个果实
 	var aneId = Math.floor(Math.random() * ane.num);
-	this.x[i] = ane.x[aneId];
-	this.y[i] = canHeight - ane.len[aneId];
+	this.x[i] = ane.headx[aneId];
+	this.y[i] = ane.heady[aneId];
 	this.l[i] = 0;
 	this.alive[i] = true;
 	var ran = Math.random();
