@@ -24,6 +24,9 @@ function momFruitsCollision()
 					{
 						data.double = 2;
 					}
+
+					wave.born(fruit.x[i], fruit.y[i]);
+					//wave.draw();
 				}
 			}
 		}
@@ -49,6 +52,9 @@ function momBabyCollision()
 			mom.momBodyCount = 0;
 			//score update
 			data.addScore();
+
+			// 大鱼 喂 小鱼的时候，产生圈圈
+			halo.born(baby.x,  baby.y);
 		}
 
 	}

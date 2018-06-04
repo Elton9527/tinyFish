@@ -30,6 +30,8 @@ var momEye = [];
 var momBodyOra = [];  // 鱼妈妈身体颜色 Orage
 var momBodyBlue = []; // 鱼妈妈身体颜色 Blue
 
+var wave = [];
+
 // 页面加载完后，执行game
 document.body.onload = game;
 function game(){
@@ -113,7 +115,12 @@ function init(){
     	momBodyBlue[i].src = "./src/bigSwimBlue" + i + ".png";
     }
 
-    
+
+    wave = new waveObj();
+    wave.init();
+
+    halo = new haloObj();
+    halo.init();
 
 }
 
@@ -151,6 +158,12 @@ function gameloop(){
 
 	// 
 	data.draw();
+
+    // wave Draw 
+    wave.draw();
+    
+    // 大鱼 喂 小鱼的特效
+    halo.draw();
 }
 
 

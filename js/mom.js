@@ -49,8 +49,6 @@ momObj.prototype.draw = function()
 		this.momTailTimer %= 50;
 	}
 
-	console.log('momEyeTimer:'+this.momEyeTimer);
-	console.log('momEyeInterval:'+this.momEyeInterval);
 
 	// mom Eye
 	this.momEyeTimer += deltaTime;
